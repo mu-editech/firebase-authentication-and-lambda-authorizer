@@ -1,5 +1,5 @@
 # 概要
-本リポジトリは、Zennで公開中の[Firebase AuthenticationとLambda Authorizerで認証ありのAPI開発をする方法]()のソースを公開したものです。
+本リポジトリは、Zennで公開中の[Firebase AuthenticationとLambda Authorizerで認証ありのAPI開発をする方法](https://zenn.dev/mutech/books/856a3101d080a1)のソースを公開したものです。
 
 # 構成図
 ![lambda_authorizer](https://user-images.githubusercontent.com/58851029/212321359-e1c5dfd2-dfb1-4f1a-a74d-61d3d73a7c9c.png)
