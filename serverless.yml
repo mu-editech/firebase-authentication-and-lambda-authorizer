@@ -1,0 +1,37 @@
+service: auth-lambda-firebase
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: go1.x
+  stage: dev
+  region: ap-northeast-1
+  versionFunctions: false
+  timeout: 28
+
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  Authorizer:
+    handler: bin/authorizer
+    package:
+      patterns:
+        - ./bin/authorizer
+    environment:
+      GOOGLE_CREDENTIALS_JSON: ${ssm:google-credentials-json}
+
+  HelloWorld:
+    handler: bin/hello_world
+    events:
+      - http:
+          path: /hello_world
+          method: get
+          authorizer:
+            name: Authorizer
+    package:
+      patterns:
+        - ./bin/hello_world
